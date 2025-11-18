@@ -1,0 +1,82 @@
+//
+// ********************************************************************
+// * License and Disclaimer                                           *
+// *                                                                  *
+// * The  Geant4 software  is  copyright of the Copyright Holders  of *
+// * the Geant4 Collaboration.  It is provided  under  the terms  and *
+// * conditions of the Geant4 Software License,  included in the file *
+// * LICENSE and available at  http://cern.ch/geant4/license .  These *
+// * include a list of copyright holders.                             *
+// *                                                                  *
+// * Neither the authors of this software system, nor their employing *
+// * institutes,nor the agencies providing financial support for this *
+// * work  make  any representation or  warranty, express or implied, *
+// * regarding  this  software system or assume any liability for its *
+// * use.  Please see the license in the file  LICENSE  and URL above *
+// * for the full disclaimer and the limitation of liability.         *
+// *                                                                  *
+// * This  code  implementation is the result of  the  scientific and *
+// * technical work of the GEANT4 collaboration.                      *
+// * By using,  copying,  modifying or  distributing the software (or *
+// * any work based  on the software)  you  agree  to acknowledge its *
+// * use  in  resulting  scientific  publications,  and indicate your *
+// * acceptance of all terms of the Geant4 Software license.          *
+// ********************************************************************
+//
+//
+/// \file RunAction.hh
+/// \brief Definition of the B4::RunAction class
+
+#ifndef B4RunAction_h
+#define B4RunAction_h 1
+
+#include "G4UserRunAction.hh"
+#include "globals.hh"
+
+#include <fstream>
+
+class G4Run;
+
+namespace B4
+{
+
+/// Run action class
+///
+/// It accumulates statistic and computes dispersion of the energy deposit
+/// and track lengths of charged particles with use of analysis tools:
+/// H1D histograms are created in BeginOfRunAction() for the following
+/// physics quantities:
+/// - Edep in sphere
+/// - Track length in sphere
+/// The same values are also saved in the ntuple.
+/// The histograms and ntuple are saved in the output file in a format
+/// according to a specified file extension.
+///
+/// In EndOfRunAction(), the accumulated statistic and computed
+/// dispersion is printed.
+///
+
+class RunAction : public G4UserRunAction
+{
+  public:
+    RunAction();
+    ~RunAction() override;
+
+    void BeginOfRunAction(const G4Run*) override;
+    void   EndOfRunAction(const G4Run*) override;
+
+    // Declaration of function giving access to output file
+    std::ofstream& GetOutputFile() const;
+
+  private:
+   // Declaration of actual file for per-step data
+   // mutable allow us to modify outFile even though it is marked const
+   mutable std::ofstream outFile;
+};
+
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+#endif
+

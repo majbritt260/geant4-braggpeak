@@ -1,0 +1,40 @@
+# Set cutting threshold
+/run/setCut 0.0000001 mm #0.1 nm
+
+# Force 1 thread to avoid threads writing simultaneously to same per-step output file
+/run/numberOfThreads 1
+
+# Choose physics list
+#/microyz/phys/addPhysics  liv	        
+#/microyz/phys/addPhysics  pene	        
+#/microyz/phys/addPhysics  dna_opt2	        
+#/microyz/phys/addPhysics  dna_opt4	        
+#/microyz/phys/addPhysics  dna_opt6	
+#/microyz/phys/addPhysics  emstandard_opt4
+/microyz/phys/addPhysics   emStd4_hadCustom
+#/microyz/phys/addPhysics  penelope_hadCustom
+
+#Initialize run
+/run/initialize
+
+# Verbosity settings 
+/tracking/verbose 0
+
+# Set up the general particle source
+/gps/particle proton
+
+# No. of particles per event
+/gps/number 1
+
+# Energy of particles
+/gps/energy 100 MeV
+
+# Direction and position
+/gps/direction 0 0 1
+/gps/pos/type Plane
+/gps/pos/shape Circle
+/gps/pos/centre 0 0 -5 cm        # should be adjusted to fit the geometry of the simulation setup
+/gps/pos/radius 1 nm
+
+# No. of events
+/run/beamOn 1000

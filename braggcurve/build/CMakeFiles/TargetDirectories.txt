@@ -1,0 +1,7 @@
+/Users/majbritt/Repositories/Geant4-v11/geant4-project/B4c-macroscopic-braggpeak/build/CMakeFiles/exampleB4c.dir
+/Users/majbritt/Repositories/Geant4-v11/geant4-project/B4c-macroscopic-braggpeak/build/CMakeFiles/edit_cache.dir
+/Users/majbritt/Repositories/Geant4-v11/geant4-project/B4c-macroscopic-braggpeak/build/CMakeFiles/rebuild_cache.dir
+/Users/majbritt/Repositories/Geant4-v11/geant4-project/B4c-macroscopic-braggpeak/build/CMakeFiles/list_install_components.dir
+/Users/majbritt/Repositories/Geant4-v11/geant4-project/B4c-macroscopic-braggpeak/build/CMakeFiles/install.dir
+/Users/majbritt/Repositories/Geant4-v11/geant4-project/B4c-macroscopic-braggpeak/build/CMakeFiles/install/local.dir
+/Users/majbritt/Repositories/Geant4-v11/geant4-project/B4c-macroscopic-braggpeak/build/CMakeFiles/install/strip.dir
